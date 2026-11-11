@@ -9,7 +9,7 @@
     "check": "node --check main.cjs && node --check sai-browser.cjs && node --check sai-browser-preload.cjs && node --check sai-browser-ui.js && npm test",
     "test": "node --test test/*.test.cjs profile-mode.test.cjs",
     "dist": "electron-builder --win nsis portable",
-    "dist:mac": "electron-builder --mac zip"
+    "dist:mac": "sips -z 512 512 assets/sai-browser.png --out assets/sai-browser-mac.png && electron-builder --mac zip"
   },
   "devDependencies": {
     "electron": "45.3.0",
@@ -50,7 +50,7 @@
       ]
     },
     "mac": {
-      "icon": "assets/sai-browser.png",
+      "icon": "assets/sai-browser-mac.png",
       "target": [
         "zip"
       ],
