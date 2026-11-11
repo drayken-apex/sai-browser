@@ -1,0 +1,69 @@
+{
+  "name": "sai-browser",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone SAI Browser",
+  "main": "main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "check": "node --check main.cjs && node --check sai-browser.cjs && node --check sai-browser-preload.cjs && node --check sai-browser-ui.js && npm test",
+    "test": "node --test test/*.test.cjs profile-mode.test.cjs",
+    "dist": "electron-builder --win nsis portable",
+    "dist:mac": "electron-builder --mac zip"
+  },
+  "devDependencies": {
+    "electron": "45.3.0",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "org.ysai.saibrowser",
+    "productName": "SAI Browser",
+    "files": [
+      "main.cjs",
+      "profile-mode.cjs",
+      "sai-browser.cjs",
+      "sai-browser-preload.cjs",
+      "sai-browser-ui.js",
+      "sai-browser.html",
+      "sai-url.cjs",
+      "sai-profile.cjs",
+      "sai-search.cjs",
+      "app-icons.cjs",
+      "assets/sai-browser.png",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "icons",
+        "filter": [
+          "sai-browser.ico",
+          "sai-browser.png"
+        ]
+      }
+    ],
+    "win": {
+      "icon": "assets/sai-browser.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "mac": {
+      "icon": "assets/sai-browser.png",
+      "target": [
+        "zip"
+      ],
+      "category": "public.app-category.productivity"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "SAI-Browser-Setup-${version}-${arch}.${ext}"
+    },
+    "portable": {
+      "artifactName": "SAI-Browser-Portable-${version}-${arch}.${ext}"
+    },
+    "publish": null
+  }
+}

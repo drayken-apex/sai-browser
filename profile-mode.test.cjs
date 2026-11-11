@@ -1,0 +1,3 @@
+const test=require('node:test'),assert=require('node:assert/strict');const {profileMode}=require('./profile-mode.cjs');
+test('personal keeps existing profile, work isolates storage and private uses temporary directory',()=>{const base='C:/test/sai',temp='C:/test/temporary';assert.equal(profileMode([],base,temp).directory,base);assert.notEqual(profileMode(['--profile','work'],base,temp).directory,base);assert.equal(profileMode(['--profile','private'],base,temp).directory,temp);assert.equal(profileMode(['--profile','private'],base,temp).partition.startsWith('persist:'),false);assert.throws(()=>profileMode(['--profile','../../escape'],base,temp));});
+

@@ -1,0 +1,54 @@
+name: Windows browser release
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npm audit --audit-level=high
+      - run: npm run check
+      - run: npm run dist
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - name: Verify executables and hash release files
+        shell: pwsh
+        run: |
+          $files = @(Get-ChildItem dist -Filter '*.exe' -File)
+          if ($files.Count -ne 2 -or -not ($files.Name -like '*Setup*') -or -not ($files.Name -like '*Portable*')) { throw 'Expected installer and portable executable' }
+          $files | ForEach-Object { (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLowerInvariant() + '  ' + $_.Name } | Set-Content dist/SHA256SUMS.txt -Encoding ascii
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sai-browser-windows
+          path: |
+            dist/*.exe
+            dist/SHA256SUMS.txt
+          if-no-files-found: error
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: windows
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: sai-browser-windows
+          path: artifacts
+      - name: Publish the verified build
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          cd artifacts
+          sha256sum -c SHA256SUMS.txt
+          gh release create "$RELEASE_TAG" ./*.exe SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --verify-tag --prerelease --title "SAI Browser $RELEASE_TAG" --notes "Unsigned Windows x64 early access. Includes the installer, portable executable, and SHA-256 checksums."
