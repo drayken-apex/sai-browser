@@ -1,0 +1,33 @@
+name: iPhone build validation
+on:
+  push:
+    branches:
+      - mobile/phone-preview
+    paths:
+      - 'mobile/ios/**'
+      - '.github/workflows/ios-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ios:
+    runs-on: macos-26
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: mobile/ios
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Show Xcode and iPhone SDK
+        run: |
+          xcodebuild -version
+          xcrun --sdk iphoneos --show-sdk-version
+      - name: Compile for iPhone without signing
+        run: |
+          xcodebuild -project SAIBrowser.xcodeproj -scheme SAIBrowser \
+            -configuration Release -destination 'generic/platform=iOS' \
+            CODE_SIGNING_ALLOWED=NO build
