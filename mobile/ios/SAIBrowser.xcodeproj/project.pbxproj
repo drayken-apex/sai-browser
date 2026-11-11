@@ -1,0 +1,52 @@
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {};
+    objectVersion = 56;
+    objects = {
+        AAAAAAAAAAAAAAAAAAAAAAA8 = {isa = PBXBuildFile; fileRef = AAAAAAAAAAAAAAAAAAAAAAA4; };
+        AAAAAAAAAAAAAAAAAAAAAAA9 = {isa = PBXBuildFile; fileRef = AAAAAAAAAAAAAAAAAAAAAAA5; };
+        AAAAAAAAAAAAAAAAAAAAAAAA = {isa = PBXBuildFile; fileRef = AAAAAAAAAAAAAAAAAAAAAAA6; };
+        AAAAAAAAAAAAAAAAAAAAAAA4 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserApp.swift; sourceTree = "<group>"; };
+        AAAAAAAAAAAAAAAAAAAAAAA5 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAddress.swift; sourceTree = "<group>"; };
+        AAAAAAAAAAAAAAAAAAAAAAA6 = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+        AAAAAAAAAAAAAAAAAAAAAAA7 = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAIBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+        AAAAAAAAAAAAAAAAAAAAAAA2 = {isa = PBXGroup; children = (AAAAAAAAAAAAAAAAAAAAAAA4, AAAAAAAAAAAAAAAAAAAAAAA5, AAAAAAAAAAAAAAAAAAAAAAA6, AAAAAAAAAAAAAAAAAAAAAAA3,); sourceTree = "<group>"; };
+        AAAAAAAAAAAAAAAAAAAAAAA3 = {isa = PBXGroup; children = (AAAAAAAAAAAAAAAAAAAAAAA7,); name = Products; sourceTree = "<group>"; };
+        AAAAAAAAAAAAAAAAAAAAAAAC = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (AAAAAAAAAAAAAAAAAAAAAAA8, AAAAAAAAAAAAAAAAAAAAAAA9,); runOnlyForDeploymentPostprocessing = 0; };
+        AAAAAAAAAAAAAAAAAAAAAAAE = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+        AAAAAAAAAAAAAAAAAAAAAAAD = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (AAAAAAAAAAAAAAAAAAAAAAAA,); runOnlyForDeploymentPostprocessing = 0; };
+        AAAAAAAAAAAAAAAAAAAAAAAB = {
+            isa = PBXNativeTarget;
+            buildConfigurationList = AAAAAAAAAAAAAAAAAAAAAA10;
+            buildPhases = (AAAAAAAAAAAAAAAAAAAAAAAC, AAAAAAAAAAAAAAAAAAAAAAAE, AAAAAAAAAAAAAAAAAAAAAAAD,);
+            buildRules = ();
+            dependencies = ();
+            name = SAIBrowser;
+            productName = SAIBrowser;
+            productReference = AAAAAAAAAAAAAAAAAAAAAAA7;
+            productType = "com.apple.product-type.application";
+        };
+        AAAAAAAAAAAAAAAAAAAAAAA1 = {
+            isa = PBXProject;
+            attributes = { LastSwiftUpdateCheck = 2600; LastUpgradeCheck = 2600; };
+            buildConfigurationList = AAAAAAAAAAAAAAAAAAAAAAAF;
+            compatibilityVersion = "Xcode 14.0";
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (en, Base,);
+            mainGroup = AAAAAAAAAAAAAAAAAAAAAAA2;
+            productRefGroup = AAAAAAAAAAAAAAAAAAAAAAA3;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = (AAAAAAAAAAAAAAAAAAAAAAAB,);
+        };
+        AAAAAAAAAAAAAAAAAAAAAA11 = {isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; IPHONEOS_DEPLOYMENT_TARGET = 16.0; SDKROOT = iphoneos; SWIFT_VERSION = 5.0; DEBUG_INFORMATION_FORMAT = dwarf; SWIFT_OPTIMIZATION_LEVEL = "-Onone"; }; name = Debug; };
+        AAAAAAAAAAAAAAAAAAAAAA12 = {isa = XCBuildConfiguration; buildSettings = { CLANG_ENABLE_MODULES = YES; IPHONEOS_DEPLOYMENT_TARGET = 16.0; SDKROOT = iphoneos; SWIFT_VERSION = 5.0; DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym"; SWIFT_COMPILATION_MODE = wholemodule; }; name = Release; };
+        AAAAAAAAAAAAAAAAAAAAAA13 = {isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = "SAI Browser"; INFOPLIST_FILE = Info.plist; INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES; INFOPLIST_KEY_UILaunchScreen_Generation = YES; INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"; MARKETING_VERSION = 0.1.0; PRODUCT_BUNDLE_IDENTIFIER = org.ysai.saibrowser; PRODUCT_NAME = "$(TARGET_NAME)"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; TARGETED_DEVICE_FAMILY = 1; }; name = Debug; };
+        AAAAAAAAAAAAAAAAAAAAAA14 = {isa = XCBuildConfiguration; buildSettings = { ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon; CODE_SIGN_STYLE = Automatic; CURRENT_PROJECT_VERSION = 1; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_CFBundleDisplayName = "SAI Browser"; INFOPLIST_FILE = Info.plist; INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES; INFOPLIST_KEY_UILaunchScreen_Generation = YES; INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight"; MARKETING_VERSION = 0.1.0; PRODUCT_BUNDLE_IDENTIFIER = org.ysai.saibrowser; PRODUCT_NAME = "$(TARGET_NAME)"; SUPPORTED_PLATFORMS = "iphoneos iphonesimulator"; TARGETED_DEVICE_FAMILY = 1; }; name = Release; };
+        AAAAAAAAAAAAAAAAAAAAAAAF = {isa = XCConfigurationList; buildConfigurations = (AAAAAAAAAAAAAAAAAAAAAA11, AAAAAAAAAAAAAAAAAAAAAA12,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+        AAAAAAAAAAAAAAAAAAAAAA10 = {isa = XCConfigurationList; buildConfigurations = (AAAAAAAAAAAAAAAAAAAAAA13, AAAAAAAAAAAAAAAAAAAAAA14,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+    };
+    rootObject = AAAAAAAAAAAAAAAAAAAAAAA1;
+}
